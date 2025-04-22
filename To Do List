@@ -1,0 +1,88 @@
+#include<iostream>
+#include <cstdlib>
+#include <string>;
+using namespace std;
+ int main()
+ {
+int num;
+string task[100];
+int icount=0;
+     cout << "\n====== TO-DO LIST MANAGER ======" << endl;
+    cout << "1. Add Task" << endl;
+    cout << "2. View Tasks" << endl;
+    cout << "3. Delete Task" << endl;
+    cout << "4. Exit" << endl;
+    cout << "Choose an option: ";
+    do{
+
+    cin>> num;
+    if (num ==1)
+    {
+        if (icount < 100)
+        {
+
+
+            cout<<"Enter your task"<<endl;
+            cin>> task[icount];
+            cout<<"task added"<<endl;
+            icount++;
+            }
+            else cout<<"Tasks are full";
+
+    }
+    else if (num==2)
+    {
+      if(icount ==0)
+      {
+          cout<<"No tasks are available"<<endl;
+      }
+      else
+      cout<<"Yours  tasks are:"<<endl;
+        for (int i=0;i<icount ;i++)
+        {
+         cout<< i + 1<<"."<<task[i]<<endl;
+        }
+      }
+else if ( num ==3)
+{
+    if (icount==0)
+    {
+        cout<<"There are no Tasks available to delete";
+
+    }
+    else
+    {
+     int del;
+    cout<<"Enter the task number you want to delete";
+    cin>>del;
+    if(del<1||del>icount)
+    {
+        cout<<"Invalid Task number please try again";
+    }
+    else
+    {
+        for (int i= del -1;i<icount -1;i++)
+        {
+
+    task[i]=task[i+1];
+        }
+        icount --;
+        cout<<"Tasks has been deleted"<<endl;
+    }
+    }
+
+
+}
+else if (num == 4 )
+{
+    cout<<"You chose to exit ,Thank you";
+}
+else
+{
+    cout<<"Invalid option please select again ";
+}
+}
+while (num!= 4);
+return 0;
+
+    }
